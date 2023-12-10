@@ -1,0 +1,320 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f0f0f0;
+}
+
+#metronome-controls {
+    margin-bottom: 20px;
+}
+
+#metronome {
+    font-size: 48px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+input, select {
+    font-size: 16px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+#toggle-metronome {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#toggle-metronome.active {
+    background-color: #dc3545; /* Красный цвет для активного состояния (Стоп) */
+}
+
+#toggle-metronome:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Добавляем стили для обычного состояния кнопки "Тренажер скорости" */
+#speed-trainer-btn {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#speed-trainer-btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Добавляем стили для активного состояния кнопки "Тренажер скорости" */
+#speed-trainer-btn.active {
+    background-color: #821919; /* Темно-красный цвет */
+}
+
+/* Остальные стили */
+#metronome-controls,
+#beats-controls {
+    margin-bottom: 20px;
+}
+
+#beats-controls select {
+    margin-top: 10px;
+}
+
+/* Добавляем стили для скрытия полей тренажера скорости */
+#speed-trainer-controls {
+    display: none;
+}
+
+#current-speed {
+    margin-top: 20px;
+}
+#current-speed {
+    margin-top: 40px;
+    font-size: 36px;
+    color: #333;
+    transition: color 0.2s ease-in-out;
+}
+
+#current-bpm {
+    font-size: 48px;
+    margin-top: 10px;
+    transition: color 0.2s ease-in-out, font-size 0.2s ease-in-out; /* Добавляем transition для анимации */
+}
+
+.pulsating {
+    animation: pulse 0.5s; /* Уменьшаем время анимации для числового значения */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        color: #333;
+    }
+
+    50% {
+        transform: scale(1.2);
+        color: #ff0000;
+    }
+
+    100% {
+        transform: scale(1);
+        color: #333;
+    }
+}
+#metronome-controls {
+    position: relative;
+}
+
+#bpm-slider {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#bpm-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #007BFF;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#bpm-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #007BFF;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#bpm-slider::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #007BFF;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#bpm-slider::-webkit-slider-runnable-track {
+    height: 8px;
+    background-color: #d6d6d6;
+    border-radius: 5px;
+}
+
+#bpm-slider::-moz-range-track {
+    height: 8px;
+    background-color: #d6d6d6;
+    border-radius: 5px;
+}
+
+#bpm-slider::-ms-track {
+    height: 8px;
+    background-color: #d6d6d6;
+    border-radius: 5px;
+}
+
+#bpm-slider::-ms-fill-lower,
+#bpm-slider::-ms-fill-upper {
+    background-color: #d6d6d6;
+    border-radius: 5px;
+}
+
+#bpm-slider::-webkit-slider-runnable-track,
+#bpm-slider::-webkit-slider-thumb {
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+#bpm-slider::-moz-range-track,
+#bpm-slider::-moz-range-thumb {
+    transition: background-color 0.3s;
+}
+
+#bpm-slider::-ms-track,
+#bpm-slider::-ms-thumb {
+    transition: background-color 0.3s;
+}
+
+#bpm-slider:hover::-webkit-slider-thumb {
+    background-color: #0056b3;
+}
+
+#bpm-slider:hover::-moz-range-thumb {
+    background-color: #0056b3;
+}
+
+#bpm-slider:hover::-ms-thumb {
+    background-color: #0056b3;
+}
+#bpm-scale {
+    width: 100%;
+    position: relative;
+    height: 20px; /* Высота шкалы */
+    margin-top: 10px;
+}
+
+.scale-mark {
+    position: absolute;
+    width: 1px; /* Ширина метки */
+    height: 8px; /* Высота метки */
+    background-color: #333;
+    top: 0;
+    margin-top: 10px; /* Высота относительно шкалы */
+}
+
+.scale-mark:nth-child(2n) {
+    height: 5px; /* Высота для каждого второго значения */
+}
+
+.scale-mark:nth-child(3n) {
+    height: 15px; /* Высота для каждого третьего значения */
+}
+
+.scale-mark:nth-child(4n) {
+    height: 5px; /* Высота для каждого четвертого значения */
+}
+
+.scale-mark:nth-child(5) {
+    height: 15px; /* Высота для значения 60 */
+}
+
+.scale-mark:nth-child(10) {
+    height: 15px; /* Высота для значения 120 */
+}
+
+.scale-mark:nth-child(15) {
+    height: 15px; /* Высота для значения 180 */
+}
+
+#metronome-controls {
+    position: relative;
+}
+
+#bpm-slider {
+    width: calc(100% - 20px); /* Учитываем ширину ползунка */
+    margin-top: 10px;
+}
+
+#bpm-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #007BFF;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1; /* Ползунок поверх шкалы */
+}
+
+#bpm-slider::-webkit-slider-runnable-track {
+    height: 8px;
+    background-color: #d6d6d6;
+    border-radius: 5px;
+}
+
+#bpm-slider:hover::-webkit-slider-thumb {
+    background-color: #0056b3;
+}
+
+/* Добавим стили для подписей значения */
+#bpm-scale .scale-mark:nth-child(5),
+#bpm-scale .scale-mark:nth-child(10),
+#bpm-scale .scale-mark:nth-child(15) {
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    top: 20px; /* Высота подписи относительно шкалы */
+}
+
+
+
+
+
+
