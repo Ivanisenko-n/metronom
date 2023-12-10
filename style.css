@@ -146,91 +146,6 @@ input[type="number"] {
     position: relative;
 }
 
-#bpm-slider {
-    width: 100%;
-    margin-top: 10px;
-}
-
-#bpm-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background-color: #007BFF;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#bpm-slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #007BFF;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#bpm-slider::-ms-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #007BFF;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#bpm-slider::-webkit-slider-runnable-track {
-    height: 8px;
-    background-color: #d6d6d6;
-    border-radius: 5px;
-}
-
-#bpm-slider::-moz-range-track {
-    height: 8px;
-    background-color: #d6d6d6;
-    border-radius: 5px;
-}
-
-#bpm-slider::-ms-track {
-    height: 8px;
-    background-color: #d6d6d6;
-    border-radius: 5px;
-}
-
-#bpm-slider::-ms-fill-lower,
-#bpm-slider::-ms-fill-upper {
-    background-color: #d6d6d6;
-    border-radius: 5px;
-}
-
-#bpm-slider::-webkit-slider-runnable-track,
-#bpm-slider::-webkit-slider-thumb {
-    -webkit-transition: background-color 0.3s;
-    transition: background-color 0.3s;
-}
-
-#bpm-slider::-moz-range-track,
-#bpm-slider::-moz-range-thumb {
-    transition: background-color 0.3s;
-}
-
-#bpm-slider::-ms-track,
-#bpm-slider::-ms-thumb {
-    transition: background-color 0.3s;
-}
-
-#bpm-slider:hover::-webkit-slider-thumb {
-    background-color: #0056b3;
-}
-
-#bpm-slider:hover::-moz-range-thumb {
-    background-color: #0056b3;
-}
-
-#bpm-slider:hover::-ms-thumb {
-    background-color: #0056b3;
-}
 #bpm-scale {
     width: 100%;
     position: relative;
@@ -275,32 +190,6 @@ input[type="number"] {
     position: relative;
 }
 
-#bpm-slider {
-    width: calc(100% - 20px); /* Учитываем ширину ползунка */
-    margin-top: 10px;
-}
-
-#bpm-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background-color: #007BFF;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1; /* Ползунок поверх шкалы */
-}
-
-#bpm-slider::-webkit-slider-runnable-track {
-    height: 8px;
-    background-color: #d6d6d6;
-    border-radius: 5px;
-}
-
-#bpm-slider:hover::-webkit-slider-thumb {
-    background-color: #0056b3;
-}
 
 /* Добавим стили для подписей значения */
 #bpm-scale .scale-mark:nth-child(5),

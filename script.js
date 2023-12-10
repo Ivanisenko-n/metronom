@@ -18,19 +18,35 @@ const speedTrainerBtn = document.getElementById('speed-trainer-btn');
 
 const toggleMetronomeButton = document.getElementById('toggle-metronome');
 
+let isMetronomeRunning = false;
 
-// Добавляем обработчик события для кнопки "Старт/Стоп"
-toggleMetronomeButton.addEventListener('click', function() {
-    if (metronome && metronome.running) {
-        // Если метроном запущен, останавливаем его
-        stopMetronome();
-        console.log('start');
-    } else {
-        // Если метроном остановлен, запускаем его
-        startMetronome();
-        console.log('stop');
+toggleMetronomeButton.addEventListener('click', toggleMetronome);
+
+document.addEventListener('keydown', function(event) {
+    toggleMetronomeButton.blur();
+    if (event.key === ' ' || event.code === 'Space') {
+        toggleMetronome();
     }
 });
+
+// Добавляем обработчик события для кнопки "Старт/Стоп"
+function toggleMetronome() {
+    console.log('toogle');
+    if (metronome) {
+        if (isMetronomeRunning) {
+            // Если метроном запущен, останавливаем его
+            // metronome.stop();
+            stopMetronome();
+        } else {
+            // Если метроном остановлен, запускаем его
+            // metronome.start();
+            startMetronome();
+        }
+
+        // Инвертируем состояние
+        isMetronomeRunning = !isMetronomeRunning;
+    }
+};
 
 function startMetronome() {
     stopMetronome(); // Stop previous metronome if running
@@ -90,7 +106,7 @@ function updateMetronomeSpeed(bpm) {
     bpmSlider.value = bpm;
 
     // Обновляем скорость метронома
-    metronome.setBPM(bpm);
+    // metronome.setBPM(bpm);
 
     // Обновляем отображение текущей скорости
     updateMetronomeDisplay();
