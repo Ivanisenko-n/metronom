@@ -10,8 +10,11 @@
 </head>
 <body>
     <div id="metronome-controls">
-        <label for="bpm">Скорость (ударов в минуту):</label>
-        <input type="number" id="bpm" value="120" min="20" max="240" step="1">
+        <div class="form">
+            <label for="bpm">Скорость (ударов в минуту):</label>
+            <input type="number" id="bpm" class="form__input" placeholder="120" value="120" min="20" max="240" step="1">
+        </div>
+        <!-- <input type="number" id="bpm" value="120" min="20" max="240" step="1"> -->
         <div class="range-slider">
           <input id="bpm-slider" class="range-slider__range" type="range" value="120" min="20" max="240">
           <span class="range-slider__value">0</span>
@@ -25,8 +28,32 @@
             <div class="scale-mark" style="left: 80%;"></div>
             <div class="scale-mark" style="left: 100%;">240</div>
         </div> -->
-        <button id="tap-tempo">Нажать в такт</button>
+        <button id="tap-tempo" class="btn btn__primary">Нажать в такт</button>
     </div>
+
+
+    <div class="segmented-control">
+      
+        <input type="radio" name="radio2" value="2" id="tab-1" checked/>
+        <label for="tab-1" class= "segmented-control__1">
+        <p>2/4</p></label>
+      
+        <input type="radio" name="radio2" value="3" id="tab-2" />
+        <label for="tab-2" class= "segmented-control__2">
+        <p>3/4</p></label>
+      
+        <input type="radio" name="radio2" value="4" id="tab-3" />
+        <label for="tab-3" class= "segmented-control__3">
+        <p>4/4</p></label>
+
+        <input type="radio" name="radio2" value="6" id="tab-4" />
+        <label for="tab-4" class= "segmented-control__4">
+        <p>6/8</p></label>
+      
+      <div class="segmented-control__color"></div>
+    </div>
+
+
     <div id="beats-controls">
         <label for="beats-per-bar">Размер: </label>
         <select id="beats-per-bar">

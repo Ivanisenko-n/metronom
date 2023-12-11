@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Comfortaa";
+  src: url("fonts/Comfortaa-VariableFont_wght.ttf");
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+/*    font-family: 'Arial', sans-serif;*/
+    font-family: 'Comfortaa', sans-serif;
     text-align: center;
     margin: 50px;
     background-color: #f0f0f0;
@@ -32,14 +38,14 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+/*button:hover {
     background-color: #45a049;
 }
 button:disabled {
     background-color: #ccc;
     color: #666;
     cursor: not-allowed;
-}
+}*/
 
 input, select {
     font-size: 16px;
@@ -48,7 +54,7 @@ input, select {
 }
 
 input[type="number"] {
-    width: 60px;
+    width: 90px;
 }
 #toggle-metronome {
     background-color: #007BFF;

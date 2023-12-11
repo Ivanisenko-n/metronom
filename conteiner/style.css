@@ -1,3 +1,27 @@
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 :root {
 	 --primary-light: #8abdff;
 	 --primary: #6d5dfc;
@@ -501,8 +525,8 @@
 	 transition: all 0.5s ease;
 	 color: var(--primary);
 }
- .segmented-control__1, .segmented-control__2, .segmented-control__3 {
-	 width: 6.8rem;
+ .segmented-control__1, .segmented-control__2, .segmented-control__3, .segmented-control__4 {
+	 width: 4.8rem;
 	 height: 3.6rem;
 	 font-size: 1.4rem;
 	 display: flex;
@@ -512,13 +536,13 @@
 	 color: var(--greyDark);
 	 transition: all 0.5s ease;
 }
- .segmented-control__1:hover, .segmented-control__2:hover, .segmented-control__3:hover {
+ .segmented-control__1:hover, .segmented-control__2:hover, .segmented-control__3:hover, .segmented-control__4:hover {
 	 color: var(--primary);
 }
  .segmented-control__color {
 	 position: absolute;
 	 height: 3.4rem;
-	 width: 6.2rem;
+	 width: 4.2rem;
 	 margin-left: 0.3rem;
 	 border-radius: 0.8rem;
 	 box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
@@ -529,11 +553,15 @@
 	 transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
  #tab-2:checked ~ .segmented-control__color {
-	 transform: translateX(6.8rem);
+	 transform: translateX(4.8rem);
 	 transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
  #tab-3:checked ~ .segmented-control__color {
-	 transform: translateX(13.6rem);
+	 transform: translateX(9.6rem);
+	 transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+ #tab-4:checked ~ .segmented-control__color {
+	 transform: translateX(14.2rem);
 	 transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 /* ICONS */
