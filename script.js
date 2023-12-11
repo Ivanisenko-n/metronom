@@ -1,8 +1,8 @@
 let metronomeInterval;
 let beatsPerMinute = 120;
-let beatsPerBar = 4;
 let currentBeat = 0;
 let tapTimes = [];
+let selectedValue = 4;
 
 const firstBeatSound = new Audio('1.mp3');
 const otherBeatSound = new Audio('2.mp3');
@@ -13,7 +13,6 @@ const otherBeatSound = new Audio('2.mp3');
 const bpmInput = document.getElementById('bpm');
 const bpmSlider = document.getElementById('bpm-slider');
 const tapTempoButton = document.getElementById('tap-tempo');
-const beatsPerBarButton = document.getElementById('beats-per-bar');
 const speedTrainerBtn = document.getElementById('speed-trainer-btn');
 
 const toggleMetronomeButton = document.getElementById('toggle-metronome');
@@ -22,6 +21,7 @@ let isMetronomeRunning = false;
 
 toggleMetronomeButton.addEventListener('click', toggleMetronome);
 
+
 document.addEventListener('keydown', function(event) {
     toggleMetronomeButton.blur();
     if (event.key === ' ' || event.code === 'Space') {
@@ -29,9 +29,10 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+
+
 // Добавляем обработчик события для кнопки "Старт/Стоп"
 function toggleMetronome() {
-    console.log('toogle');
     if (metronome) {
         if (isMetronomeRunning) {
             // Если метроном запущен, останавливаем его
@@ -57,7 +58,8 @@ function startMetronome() {
         startSpeedTrainer();
     } else {
         beatsPerMinute = parseInt(document.getElementById('bpm').value, 10);
-        beatsPerBar = parseInt(document.getElementById('beats-per-bar').value, 10);
+        // selectedValue = parseInt(document.getElementById('beats-per-bar').value, 10);
+        setupSegmentedControl();
 
         const millisecondsPerBeat = 60000 / beatsPerMinute;
         metronomeInterval = setInterval(playBeat, millisecondsPerBeat);
@@ -68,7 +70,6 @@ function startMetronome() {
     tapTempoButton.disabled = true;
     bpmInput.disabled = true;
     bpmSlider.disabled = true;
-    beatsPerBarButton.disabled = true;
     speedTrainerBtn.disabled = true;
 }
 
@@ -82,7 +83,6 @@ function stopMetronome() {
     tapTempoButton.disabled = false;
     bpmInput.disabled = false;
     bpmSlider.disabled = false;
-    beatsPerBarButton.disabled = false;
     speedTrainerBtn.disabled = false;
 }
 
@@ -113,7 +113,9 @@ function updateMetronomeSpeed(bpm) {
 }
 
 function playBeat() {
-    currentBeat = (currentBeat % beatsPerBar) + 1;
+    setupSegmentedControl();
+    // console.log(selectedValue);
+    currentBeat = (currentBeat % selectedValue) + 1;
     updateMetronomeDisplay();
 
     if (currentBeat === 1) {
@@ -224,5 +226,35 @@ function startSpeedTrainer() {
     metronomeInterval = setInterval(updateMetronome, millisecondsPerBeat);
 }
 
+function setupSegmentedControl() {
+    // Обработчик события изменения для нового блока segmented-control
+    document.querySelectorAll('.segmented-control input[type="radio"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            // Получение выбранного значения
+            selectedValue = this.value;
+            
+            // Ваш код для обработки выбранного значения, например:
+            // console.log('Выбран размер: ' + selectedValue);
+        });
+    });
 
+    // Изначальное выполнение кода для установки начального значения (если нужно)
+    document.querySelector('.segmented-control input[type="radio"]:checked').dispatchEvent(new Event('change'));
+}
 
+/*  play button */
+const play = document.querySelector('.play');
+const pause = document.querySelector('.pause');
+const playBtn = document.querySelector('.circle__btn');
+const wave1 = document.querySelector('.circle__back-1');
+const wave2 = document.querySelector('.circle__back-2');
+
+/*  play button  */
+playBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  pause.classList.toggle('visibility');
+  play.classList.toggle('visibility');
+  playBtn.classList.toggle('shadow');
+  wave1.classList.toggle('paused');
+  wave2.classList.toggle('paused');
+});

@@ -3,96 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Метроном</title>
+    <title>Метроном-онлайн</title>
     <link rel="stylesheet" href="slider.css">
     <link rel="stylesheet" href="conteiner/style.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="metronome-controls">
-        <div class="form">
-            <label for="bpm">Скорость (ударов в минуту):</label>
-            <input type="number" id="bpm" class="form__input" placeholder="120" value="120" min="20" max="240" step="1">
+    <div class="container">
+        <div class="components">
+            <div id="metronome-controls">
+                <div class="form">
+                    <label for="bpm">Скорость (ударов в минуту):</label>
+                    <input type="number" id="bpm" class="form__input" placeholder="120" value="120" min="20" max="240" step="1">
+                </div>
+                <div class="range-slider">
+                  <input id="bpm-slider" class="range-slider__range" type="range" value="120" min="20" max="240">
+                  <span class="range-slider__value">0</span>
+                </div>
+                <button id="tap-tempo" class="btn btn__primary">Нажать в такт</button>
+
+                <div class="segmented-control">
+              
+                    <input type="radio" name="radio2" value="2" id="tab-1" />
+                    <label for="tab-1" class= "segmented-control__1">
+                    <p>2/4</p></label>
+                  
+                    <input type="radio" name="radio2" value="3" id="tab-2" />
+                    <label for="tab-2" class= "segmented-control__2">
+                    <p>3/4</p></label>
+                  
+                    <input type="radio" name="radio2" value="4" id="tab-3" checked/>
+                    <label for="tab-3" class= "segmented-control__3">
+                    <p>4/4</p></label>
+
+                    <input type="radio" name="radio2" value="6" id="tab-4" />
+                    <label for="tab-4" class= "segmented-control__4">
+                    <p>6/8</p></label>
+                  
+                  <div class="segmented-control__color"></div>
+                </div>
+                <div>
+                    <button id="speed-trainer-btn" class="btn btn__secondary    " onclick="toggleSpeedTrainerControls()">Тренажер скорости</button>
+                </div>
+            </div>
+            <div id="speed-trainer-controls" style="display: none;">
+                <label for="initial-bpm">Скорость начальная: </label>
+                <input class="form__input" type="number" id="initial-bpm" min="30" max="240" value="120">
+
+                <label for="final-bpm">Скорость конечная: </label>
+                <input class="form__input" type="number" id="final-bpm" min="30" max="240" value="160">
+
+                <label for="beats-before-change">Количество тактов до изменения: </label>
+                <input class="form__input" type="number" id="beats-before-change" min="1" value="4">
+
+                <label for="bpm-increase">Шаг изменения: </label>
+                <input class="form__input" type="number" id="bpm-increase" min="1" value="5">
+            </div>
+            <div>
+                <div id="metronome">0</div>
+            </div>
+            <button id="toggle-metronome">СТАРТ</button>
         </div>
-        <!-- <input type="number" id="bpm" value="120" min="20" max="240" step="1"> -->
-        <div class="range-slider">
-          <input id="bpm-slider" class="range-slider__range" type="range" value="120" min="20" max="240">
-          <span class="range-slider__value">0</span>
-        </div>
-        <!-- <input type="range" id="bpm-slider" min="20" max="240" step="1" value="120"> -->
-<!--         <div id="bpm-scale">
-            <div class="scale-mark" style="left: 0%;">20</div>
-            <div class="scale-mark" style="left: 20%;"></div>
-            <div class="scale-mark" style="left: 40%;"></div>
-            <div class="scale-mark" style="left: 60%;">60</div>
-            <div class="scale-mark" style="left: 80%;"></div>
-            <div class="scale-mark" style="left: 100%;">240</div>
-        </div> -->
-        <button id="tap-tempo" class="btn btn__primary">Нажать в такт</button>
     </div>
-
-
-    <div class="segmented-control">
-      
-        <input type="radio" name="radio2" value="2" id="tab-1" checked/>
-        <label for="tab-1" class= "segmented-control__1">
-        <p>2/4</p></label>
-      
-        <input type="radio" name="radio2" value="3" id="tab-2" />
-        <label for="tab-2" class= "segmented-control__2">
-        <p>3/4</p></label>
-      
-        <input type="radio" name="radio2" value="4" id="tab-3" />
-        <label for="tab-3" class= "segmented-control__3">
-        <p>4/4</p></label>
-
-        <input type="radio" name="radio2" value="6" id="tab-4" />
-        <label for="tab-4" class= "segmented-control__4">
-        <p>6/8</p></label>
-      
-      <div class="segmented-control__color"></div>
-    </div>
-
-
-    <div id="beats-controls">
-        <label for="beats-per-bar">Размер: </label>
-        <select id="beats-per-bar">
-            <option value="2">2/4</option>
-            <option value="3">3/4</option>
-            <option value="4" selected>4/4</option>
-            <option value="6">6/8</option>
-        </select>
-    </div>
-
-        <!-- <button id="start" >Старт</button>
-        <button id="stop" >Стоп</button> -->
-        <!-- <button id="tap-tempo">Набить темп</button> -->
         
-        <button id="speed-trainer-btn" onclick="toggleSpeedTrainerControls()">Тренажер скорости</button>
-        <div id="speed-trainer-controls" style="display: none;">
-            <label for="initial-bpm">Скорость начальная: </label>
-            <input type="number" id="initial-bpm" min="30" max="240" value="120">
-
-            <label for="final-bpm">Скорость конечная: </label>
-            <input type="number" id="final-bpm" min="30" max="240" value="160">
-
-            <label for="beats-before-change">Количество тактов до изменения: </label>
-            <input type="number" id="beats-before-change" min="1" value="4">
-
-            <label for="bpm-increase">Шаг изменения: </label>
-            <input type="number" id="bpm-increase" min="1" value="5">
-        </div>
+        
+        
     </div>
-
-    <div id="metronome">0</div>
-    <div id="current-speed" class="pulsating">Текущая скорость:</div>
-    <div id="current-bpm">120 BPM</div>
     
-    <button id="toggle-metronome">СТАРТ</button>
+    <!-- <div id="current-speed" class="pulsating">Текущая скорость:</div> -->
+    <!-- <div id="current-bpm">120 BPM</div> -->
+    
+
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="slider.js"></script>
-    <script src="conteiner/script.js"></script>
+    <!-- <script src="conteiner/script.js"></script> -->
     <script src="script.js"></script>
 </body>
 </html>
