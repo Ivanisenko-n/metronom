@@ -68,6 +68,8 @@
 	 grid-column-gap: 5rem;
 	 grid-row-gap: 2.5rem;
 	 align-items: center;
+	 z-index: 99999;
+	 background: var(--greyLight-1);
 }
 /* SWITCH */
  .switch {
