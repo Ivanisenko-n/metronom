@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="slider.css">
     <link rel="stylesheet" href="conteiner/style.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(95855076, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/95855076" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <div class="stars"></div>
 <div class="twinkling"></div>
@@ -14,18 +30,20 @@
 <body>
     <div class="container">
         <div class="components">
-            <div id="metronome-controls">
-                <div class="form">
-                    <label for="bpm">Скорость (ударов в минуту):</label>
-                    <input type="number" id="bpm" class="form__input" placeholder="120" value="120" min="20" max="240" step="1">
-                </div>
+            <div class="form full-width">
+                <label for="bpm">Ударов в минуту</label>
+                <input type="number" id="bpm" class="form__input" placeholder="120" value="120" min="20" max="240" step="1">
                 <div class="range-slider">
                   <input id="bpm-slider" class="range-slider__range" type="range" value="120" min="20" max="240">
                   <span class="range-slider__value">0</span>
                 </div>
+            </div>
+            <!-- <div id="metronome-controls"> -->
+
+                
                 <button id="tap-tempo" class="btn btn__primary">Нажать в такт</button>
 
-                <div class="segmented-control">
+                <div class="segmented-control three-columns">
               
                     <input type="radio" name="radio2" value="2" id="tab-1" />
                     <label for="tab-1" class= "segmented-control__1">
@@ -48,7 +66,7 @@
                 <div>
                     <button id="speed-trainer-btn" class="btn btn__secondary    " onclick="toggleSpeedTrainerControls()">Тренажер скорости</button>
                 </div>
-            </div>
+            <!-- </div> -->
             <div id="speed-trainer-controls" style="display: none;">
                 <label for="initial-bpm">Скорость начальная: </label>
                 <input class="form__input" type="number" id="initial-bpm" min="30" max="240" value="120">

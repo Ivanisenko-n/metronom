@@ -155,7 +155,7 @@ function calculateAverageBPM() {
 
 function updateBPMInput() {
     document.getElementById('bpm').value = Math.round(beatsPerMinute);
-    document.getElementById('current-speed').innerText = `Текущая скорость: ${Math.round(beatsPerMinute)} BPM`;
+    // document.getElementById('current-speed').innerText = `Текущая скорость: ${Math.round(beatsPerMinute)} BPM`;
 }
 
 document.getElementById('tap-tempo').addEventListener('click', function() {

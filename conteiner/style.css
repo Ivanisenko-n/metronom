@@ -63,13 +63,24 @@
 	 box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-2), -0.2rem -0.2rem 1.8rem var(--white);
 	 padding: 4rem;
 	 display: grid;
-	 grid-template-columns: 17.6rem 19rem 20.4rem;
+/*	 grid-template-columns: 17.6rem 19rem 20.4rem;*/
+	 grid-template-columns: repeat(4, 1fr);
 	 grid-template-rows: repeat(autofit, min-content);
 	 grid-column-gap: 5rem;
 	 grid-row-gap: 2.5rem;
 	 align-items: center;
 	 z-index: 99999;
 	 background: var(--greyLight-1);
+}
+.full-width {
+    grid-column: span 4;
+}
+
+.two-columns {
+    grid-column: span 2;
+}
+.three-columns {
+    grid-column: span 3;
 }
 /* SWITCH */
  .switch {
