@@ -122,14 +122,14 @@ function playBeat() {
         firstBeatSound.play();
 
         // Добавляем класс для анимации пульсации и изменения цвета на первом ударе только для числового значения
-        document.getElementById('current-bpm').classList.add('pulsating');
-        document.getElementById('current-bpm').style.color = '#ff0000';
+        // document.getElementById('current-bpm').classList.add('pulsating');
+        // document.getElementById('current-bpm').style.color = '#ff0000';
         
         // Возвращаем к обычному цвету и размеру после анимации
-        setTimeout(function() {
-            document.getElementById('current-bpm').classList.remove('pulsating');
-            document.getElementById('current-bpm').style.color = '#333';
-        }, 500);
+        // setTimeout(function() {
+        //     document.getElementById('current-bpm').classList.remove('pulsating');
+        //     document.getElementById('current-bpm').style.color = '#333';
+        // }, 500);
     } else {
         otherBeatSound.play();
     }
@@ -243,18 +243,18 @@ function setupSegmentedControl() {
 }
 
 /*  play button */
-const play = document.querySelector('.play');
-const pause = document.querySelector('.pause');
-const playBtn = document.querySelector('.circle__btn');
-const wave1 = document.querySelector('.circle__back-1');
-const wave2 = document.querySelector('.circle__back-2');
+// const play = document.querySelector('.play');
+// const pause = document.querySelector('.pause');
+// const playBtn = document.querySelector('.circle__btn');
+// const wave1 = document.querySelector('.circle__back-1');
+// const wave2 = document.querySelector('.circle__back-2');
 
-/*  play button  */
-playBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  pause.classList.toggle('visibility');
-  play.classList.toggle('visibility');
-  playBtn.classList.toggle('shadow');
-  wave1.classList.toggle('paused');
-  wave2.classList.toggle('paused');
-});
+
+// playBtn.addEventListener('click', function(e) {
+//   e.preventDefault();
+//   pause.classList.toggle('visibility');
+//   play.classList.toggle('visibility');
+//   playBtn.classList.toggle('shadow');
+//   wave1.classList.toggle('paused');
+//   wave2.classList.toggle('paused');
+// });
