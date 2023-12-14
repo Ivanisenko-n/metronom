@@ -171,19 +171,24 @@ document.getElementById('tap-tempo').addEventListener('click', function() {
     beatsPerMinute = calculateAverageBPM();
     updateBPMInput();
 });
-
+$(document).ready(function() {
+  $('#speed-trainer-btn').on('click', function() {
+    toggleSpeedTrainerControls();
+  });
+});
 function toggleSpeedTrainerControls() {
-    const speedTrainerControls = document.getElementById('speed-trainer-controls');
-    const speedTrainerButton = document.getElementById('speed-trainer-btn');
+    const speedTrainerControls = $('.box-speed-trainer');
+    const speedTrainerButton = $('#speed-trainer-btn');
 
-    if (speedTrainerControls.style.display === 'none') {
-        speedTrainerControls.style.display = 'block';
-        speedTrainerButton.classList.add('active');
+    if (speedTrainerControls.css('display') === 'none') {
+        speedTrainerControls.css('display', 'block');
+        speedTrainerButton.addClass('active');
     } else {
-        speedTrainerControls.style.display = 'none';
-        speedTrainerButton.classList.remove('active');
+        speedTrainerControls.css('display', 'none');
+        speedTrainerButton.removeClass('active');
     }
 }
+
 
 let repetitionsCounter = 0;
 
@@ -235,12 +240,29 @@ function setupSegmentedControl() {
             
             // Ваш код для обработки выбранного значения, например:
             // console.log('Выбран размер: ' + selectedValue);
+            updateDots(selectedValue);
         });
     });
 
     // Изначальное выполнение кода для установки начального значения (если нужно)
     document.querySelector('.segmented-control input[type="radio"]:checked').dispatchEvent(new Event('change'));
 }
+function updateDots(count) {
+    const dotsContainer = document.getElementById('dots-container');
+
+    // Очищаем предыдущие точки
+    dotsContainer.innerHTML = '';
+
+    // Добавляем новые точки
+    for (let i = 0; i < count; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dotsContainer.appendChild(dot);
+    }
+}
+
+// Вызываем функцию для установки начального значения
+setupSegmentedControl();
 
 /*  play button */
 // const play = document.querySelector('.play');

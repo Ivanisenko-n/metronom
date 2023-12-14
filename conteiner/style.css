@@ -82,6 +82,15 @@
 .three-columns {
     grid-column: span 3;
 }
+
+.box {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+}
+.box-speed-trainer{
+	display: none;
+}
 /* SWITCH */
  .switch {
 	 grid-column: 0.5;
@@ -202,8 +211,22 @@
 	 height: 2.8rem;
 	 border-radius: 50%;
 }
+.dot{
+	box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+	 position: relative;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 cursor: pointer;
+	 width: 2.8rem;
+	 height: 2.8rem;
+	 border-radius: 50%;
+	 float: left;
+	 margin: 0 0.5rem;
+}
  .radio__1 label:hover::after, .radio__2 label:hover::after {
 	 background: var(--primary);
+}
 }
  .radio__1 label::after, .radio__2 label::after {
 	 content: "";
