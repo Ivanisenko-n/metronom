@@ -179,7 +179,7 @@ $(document).ready(function() {
 function toggleSpeedTrainerControls() {
     const speedTrainerControls = $('.box-speed-trainer');
     const speedTrainerButton = $('#speed-trainer-btn');
-    const speedTrainerButton = $('#speed-trainer-controls');
+    // const speedTrainerButton = $('#speed-trainer-controls');
 
     if (speedTrainerControls.css('display') === 'none') {
         speedTrainerControls.css('display', 'block');
