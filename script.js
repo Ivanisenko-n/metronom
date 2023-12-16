@@ -221,9 +221,11 @@ function startSpeedTrainer() {
     let millisecondsPerBeat = 60000 / beatsPerMinute; // Инициализация
 
     function updateMetronome() {
+        // console.log(beatsPerMinute, initialBPM, finalBPM);
+        updateProgressBar(beatsPerMinute, initialBPM, finalBPM);
         playBeat();
 
-        if (currentBeat === 1) {
+        if (currentBeat === 4) {
             repetitionsCounter++; // Увеличиваем счетчик при первом ударе
         }
 
@@ -275,8 +277,18 @@ function updateDots(count) {
         dotsContainer.appendChild(dot);
     }
 }
+// Изменение значение прогресс бара
+    function drawProgressBar(initialValue, finalValue) {
+        const initialPercent = (initialValue / finalValue) * 100;
+        $('#progress').width(`${initialPercent}%`);
+    }
 
-
+    function updateProgressBar(currentValue, initialValue, finalValue) {
+        const percentChange = ((currentValue - initialValue) / (finalValue - initialValue)) * 100;
+        $('#progress').width(`${percentChange}%`);
+        $('.current-progress-speed').text(currentValue);
+    }
+// ---------
 
 /*  play button */
 // const play = document.querySelector('.play');
