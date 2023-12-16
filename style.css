@@ -57,17 +57,18 @@ input[type="number"] {
     width: 90px;
 }
 #toggle-metronome {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 15px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
+     grid-column: 0.5;
+     grid-row: 0.8;
+     background: var(--primary);
+     box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light), inset -0.2rem -0.2rem 1rem var(--primary-dark), 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+     color: var(--greyLight-1);
+    width: 100%;
+    
 }
 
 #toggle-metronome.active {
-    background-color: #dc3545; /* Красный цвет для активного состояния (Стоп) */
+    box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-dark), inset -0.2rem -0.2rem 1rem var(--primary-light);
+/*    background-color: #dc3545; */
 }
 
 #toggle-metronome:disabled {

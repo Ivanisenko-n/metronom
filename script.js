@@ -35,20 +35,18 @@ document.addEventListener('keydown', function(event) {
 
 // Добавляем обработчик события для кнопки "Старт/Стоп"
 function toggleMetronome() {
-    if (metronome) {
+    // if (metronome) {
         if (isMetronomeRunning) {
             // Если метроном запущен, останавливаем его
-            // metronome.stop();
             stopMetronome();
         } else {
             // Если метроном остановлен, запускаем его
-            // metronome.start();
             startMetronome();
         }
 
         // Инвертируем состояние
         isMetronomeRunning = !isMetronomeRunning;
-    }
+    // }
 };
 
 function startMetronome() {
@@ -67,7 +65,7 @@ function startMetronome() {
         metronomeInterval = setInterval(playBeat, millisecondsPerBeat);
     }
     // startButton.disabled = true;
-    toggleMetronomeButton.textContent = 'СТОП';
+    toggleMetronomeButton.textContent = 'СТОП (SPACE)';
     toggleMetronomeButton.classList.add('active');
     tapTempoButton.disabled = true;
     bpmInput.disabled = true;
@@ -81,7 +79,7 @@ function stopMetronome() {
     currentBeat = 0;
     updateMetronomeDisplay();
     // startButton.disabled = false;
-    toggleMetronomeButton.textContent = 'СТАРТ';
+    toggleMetronomeButton.textContent = 'СТАРТ (SPACE)';
     toggleMetronomeButton.classList.remove('active');
     tapTempoButton.disabled = false;
     bpmInput.disabled = false;
@@ -139,7 +137,7 @@ function playBeat() {
 }
 
 function updateMetronomeDisplay() {
-    document.getElementById('metronome').innerText = currentBeat;
+    // document.getElementById('metronome').innerText = currentBeat;
     // Удаляем класс active-dot у всех точек
     document.querySelectorAll('.dot').forEach(dot => {
         dot.classList.remove('active-dot');
