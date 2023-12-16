@@ -223,9 +223,21 @@
 	 border-radius: 50%;
 	 float: left;
 	 margin: 0 0.5rem;
+	 transition: all .2s linear;
+}
+.dot:hover{
+	transform: scale(1.148);
+    background: var(--primary);
+}
+.dot.active-dot{
+/*	transition: .2s linear;*/
+    transform: scale(1.148);
+    background: var(--primary);
+/*    box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light), inset -0.2rem -0.2rem 1rem var(--primary-dark), 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem*/
 }
  .radio__1 label:hover::after, .radio__2 label:hover::after {
 	 background: var(--primary);
+}
 }
 }
  .radio__1 label::after, .radio__2 label::after {

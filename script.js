@@ -21,6 +21,8 @@ let isMetronomeRunning = false;
 
 toggleMetronomeButton.addEventListener('click', toggleMetronome);
 
+// Вызываем функцию для установки начального значения
+setupSegmentedControl();
 
 document.addEventListener('keydown', function(event) {
     toggleMetronomeButton.blur();
@@ -71,6 +73,7 @@ function startMetronome() {
     bpmInput.disabled = true;
     bpmSlider.disabled = true;
     speedTrainerBtn.disabled = true;
+    updateMetronomeDisplay();
 }
 
 function stopMetronome() {
@@ -113,7 +116,7 @@ function updateMetronomeSpeed(bpm) {
 }
 
 function playBeat() {
-    setupSegmentedControl();
+    // setupSegmentedControl();
     // console.log(selectedValue);
     currentBeat = (currentBeat % selectedValue) + 1;
     updateMetronomeDisplay();
@@ -137,6 +140,19 @@ function playBeat() {
 
 function updateMetronomeDisplay() {
     document.getElementById('metronome').innerText = currentBeat;
+    // Удаляем класс active-dot у всех точек
+    document.querySelectorAll('.dot').forEach(dot => {
+        dot.classList.remove('active-dot');
+    });
+
+    // Используем requestAnimationFrame для обновления DOM перед добавлением класса
+    requestAnimationFrame(() => {
+        // Добавляем класс active-dot к точке, соответствующей текущему биту
+        const activeDot = document.querySelector(`.dot:nth-child(${currentBeat})`);
+        if (activeDot) {
+            activeDot.classList.add('active-dot');
+        }
+    });
 }
 
 function calculateAverageBPM() {
@@ -262,8 +278,7 @@ function updateDots(count) {
     }
 }
 
-// Вызываем функцию для установки начального значения
-setupSegmentedControl();
+
 
 /*  play button */
 // const play = document.querySelector('.play');
