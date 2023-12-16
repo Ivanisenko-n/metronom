@@ -66,8 +66,8 @@
 /*	 grid-template-columns: 17.6rem 19rem 20.4rem;*/
 	 grid-template-columns: repeat(4, 1fr);
 	 grid-template-rows: repeat(autofit, min-content);
-	 grid-column-gap: 5rem;
-	 grid-row-gap: 1.0rem;
+	 grid-column-gap: 2rem;
+	 grid-row-gap: 0rem;
 	 align-items: center;
 	 z-index: 99999;
 	 background: var(--greyLight-1);
