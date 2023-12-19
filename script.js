@@ -105,38 +105,23 @@ function updateMetronomeSpeed(bpm) {
     // Обновляем значение на ползунке
     bpmSlider.value = bpm;
 
-    // Обновляем скорость метронома
-    // metronome.setBPM(bpm);
-
     // Обновляем отображение текущей скорости
     updateMetronomeDisplay();
 }
 
 function playBeat() {
-    // setupSegmentedControl();
-    // console.log(selectedValue);
+
     currentBeat = (currentBeat % selectedValue) + 1;
     updateMetronomeDisplay();
 
     if (currentBeat === 1) {
         firstBeatSound.play();
-
-        // Добавляем класс для анимации пульсации и изменения цвета на первом ударе только для числового значения
-        // document.getElementById('current-bpm').classList.add('pulsating');
-        // document.getElementById('current-bpm').style.color = '#ff0000';
-        
-        // Возвращаем к обычному цвету и размеру после анимации
-        // setTimeout(function() {
-        //     document.getElementById('current-bpm').classList.remove('pulsating');
-        //     document.getElementById('current-bpm').style.color = '#333';
-        // }, 500);
     } else {
         otherBeatSound.play();
     }
 }
 
 function updateMetronomeDisplay() {
-    // document.getElementById('metronome').innerText = currentBeat;
     // Удаляем класс active-dot у всех точек
     document.querySelectorAll('.dot').forEach(dot => {
         dot.classList.remove('active-dot');
@@ -207,10 +192,10 @@ function toggleSpeedTrainerControls() {
 let repetitionsCounter = 0;
 
 function startSpeedTrainer() {
-    const initialBPM = parseInt(document.getElementById('initial-bpm').value, 10);
-    const finalBPM = parseInt(document.getElementById('final-bpm').value, 10);
-    const beatsBeforeChange = parseInt(document.getElementById('beats-before-change').value, 10);
-    const bpmIncrease = parseInt(document.getElementById('bpm-increase').value, 10);
+    const initialBPM = parseInt($('#initial-bpm').val(), 10);
+    const finalBPM = parseInt($('#final-bpm').val(), 10);
+    const beatsBeforeChange = parseInt($('#beats-before-change').val(), 10);
+    const bpmIncrease = parseInt($('#bpm-increase').val(), 10);
 
     stopMetronome(); // Stop previous metronome if running
     beatsPerMinute = initialBPM;
@@ -246,6 +231,7 @@ function startSpeedTrainer() {
 
     metronomeInterval = setInterval(updateMetronome, millisecondsPerBeat);
 }
+
 
 function setupSegmentedControl() {
     // Обработчик события изменения для нового блока segmented-control
