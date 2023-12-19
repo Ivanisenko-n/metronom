@@ -52,25 +52,25 @@ function toggleMetronome() {
 function startMetronome() {
     stopMetronome(); // Stop previous metronome if running
 
-    const isSpeedTrainerActive = document.getElementById('speed-trainer-btn').classList.contains('active');
+    const isSpeedTrainerActive = $('#speed-trainer-btn').hasClass('active');
 
     if (isSpeedTrainerActive) {
         startSpeedTrainer();
     } else {
-        beatsPerMinute = parseInt(document.getElementById('bpm').value, 10);
-        // selectedValue = parseInt(document.getElementById('beats-per-bar').value, 10);
+        beatsPerMinute = parseInt($('#bpm').val(), 10);
+        // selectedValue = parseInt($('#beats-per-bar').val(), 10);
         setupSegmentedControl();
 
         const millisecondsPerBeat = 60000 / beatsPerMinute;
         metronomeInterval = setInterval(playBeat, millisecondsPerBeat);
     }
-    // startButton.disabled = true;
-    toggleMetronomeButton.textContent = 'СТОП (SPACE)';
-    toggleMetronomeButton.classList.add('active');
-    tapTempoButton.disabled = true;
-    bpmInput.disabled = true;
-    bpmSlider.disabled = true;
-    speedTrainerBtn.disabled = true;
+    
+    // $('#start').prop('disabled', true);
+    $('#toggle-metronome').text('СТОП (SPACE)').addClass('active');
+    $('#tap-tempo').prop('disabled', true);
+    $('#bpm').prop('disabled', true);
+    $('#bpm-slider').prop('disabled', true);
+    $('#speed-trainer-btn').prop('disabled', true);
     updateMetronomeDisplay();
 }
 
@@ -78,13 +78,12 @@ function stopMetronome() {
     clearInterval(metronomeInterval);
     currentBeat = 0;
     updateMetronomeDisplay();
-    // startButton.disabled = false;
-    toggleMetronomeButton.textContent = 'СТАРТ (SPACE)';
-    toggleMetronomeButton.classList.remove('active');
-    tapTempoButton.disabled = false;
-    bpmInput.disabled = false;
-    bpmSlider.disabled = false;
-    speedTrainerBtn.disabled = false;
+    // $('#start').prop('disabled', false);
+    $('#toggle-metronome').text('СТАРТ (SPACE)').removeClass('active');
+    $('#tap-tempo').prop('disabled', false);
+    $('#bpm').prop('disabled', false);
+    $('#bpm-slider').prop('disabled', false);
+    $('#speed-trainer-btn').prop('disabled', false);
 }
 
 // Слушаем изменения значения в поле ввода
