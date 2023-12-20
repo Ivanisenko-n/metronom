@@ -26,27 +26,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/*button {
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-*/
-/*button:hover {
-    background-color: #45a049;
-}
-button:disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-}*/
-
 input, select {
     font-size: 16px;
     padding: 10px;
@@ -76,27 +55,6 @@ input[type="number"] {
     color: #666;
     cursor: not-allowed;
 }
-
-/* Добавляем стили для обычного состояния кнопки "Тренажер скорости" */
-/*#speed-trainer-btn {
-    background-color: #4CAF50; 
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#speed-trainer-btn:disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-}*/
-
-/* Добавляем стили для активного состояния кнопки "Тренажер скорости" */
-/*#speed-trainer-btn.active {
-    background-color: #821919;
-}*/
 
 /* Остальные стили */
 #metronome-controls,
