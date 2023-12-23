@@ -1,26 +1,4 @@
-/* fallback */
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
-}
 
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-}
 
 :root {
 	 --primary-light: #8abdff;
@@ -48,49 +26,7 @@
 		 font-size: 75%;
 	}
 }
- .container {
-	 min-height: 100vh;
-	 display: flex;
-	 justify-content: center;
-	 align-items: center;
-	 font-family: 'Poppins', sans-serif;
-	 background: var(--greyLight-1);
-}
- .components {
-	 width: 75rem;
-	 height: 50rem;
-	 border-radius: 3rem;
-	 box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-2), -0.2rem -0.2rem 1.8rem var(--white);
-	 padding: 2rem 4rem;
-	 display: grid;
-/*	 grid-template-columns: 17.6rem 19rem 20.4rem;*/
-	 grid-template-columns: repeat(4, 1fr);
-	 grid-template-rows: repeat(autofit, min-content);
-	 grid-column-gap: 2rem;
-	 grid-row-gap: 0rem;
-	 align-items: center;
-	 z-index: 99999;
-	 background: var(--greyLight-1);
-}
-.full-width {
-    grid-column: span 4;
-}
 
-.two-columns {
-    grid-column: span 2;
-}
-.three-columns {
-    grid-column: span 3;
-}
-
-.box {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px;
-}
-.box-speed-trainer{
-	display: none;
-}
 /* SWITCH */
  .switch {
 	 grid-column: 0.5;

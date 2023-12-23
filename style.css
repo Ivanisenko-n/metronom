@@ -4,11 +4,7 @@
 }
 
 body {
-/*    font-family: 'Arial', sans-serif;*/
     font-family: 'Comfortaa', sans-serif;
-/*    text-align: center;*/
-/*    margin: 50px;*/
-/*    background-color: #f0f0f0;*/
 }
 
 #metronome-controls {
@@ -67,8 +63,8 @@ input[type="number"] {
 }
 
 /* Добавляем стили для скрытия полей тренажера скорости */
-#speed-trainer-controls {
-/*    display: none;*/
+.box-speed-trainer{
+    display: none;
 }
 
 #current-speed {
@@ -87,84 +83,8 @@ input[type="number"] {
     transition: color 0.2s ease-in-out, font-size 0.2s ease-in-out; /* Добавляем transition для анимации */
 }
 
-.pulsating {
-    animation: pulse 0.5s; /* Уменьшаем время анимации для числового значения */
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        color: #333;
-    }
-
-    50% {
-        transform: scale(1.2);
-        color: #ff0000;
-    }
-
-    100% {
-        transform: scale(1);
-        color: #333;
-    }
-}
 #metronome-controls {
     position: relative;
-}
-
-#bpm-scale {
-    width: 100%;
-    position: relative;
-    height: 20px; /* Высота шкалы */
-    margin-top: 10px;
-}
-
-.scale-mark {
-    position: absolute;
-    width: 1px; /* Ширина метки */
-    height: 8px; /* Высота метки */
-    background-color: #333;
-    top: 0;
-    margin-top: 10px; /* Высота относительно шкалы */
-}
-
-.scale-mark:nth-child(2n) {
-    height: 5px; /* Высота для каждого второго значения */
-}
-
-.scale-mark:nth-child(3n) {
-    height: 15px; /* Высота для каждого третьего значения */
-}
-
-.scale-mark:nth-child(4n) {
-    height: 5px; /* Высота для каждого четвертого значения */
-}
-
-.scale-mark:nth-child(5) {
-    height: 15px; /* Высота для значения 60 */
-}
-
-.scale-mark:nth-child(10) {
-    height: 15px; /* Высота для значения 120 */
-}
-
-.scale-mark:nth-child(15) {
-    height: 15px; /* Высота для значения 180 */
-}
-
-#metronome-controls {
-    position: relative;
-}
-
-
-/* Добавим стили для подписей значения */
-#bpm-scale .scale-mark:nth-child(5),
-#bpm-scale .scale-mark:nth-child(10),
-#bpm-scale .scale-mark:nth-child(15) {
-    color: #333;
-    font-size: 12px;
-    text-align: center;
-    position: relative;
-    top: 20px; /* Высота подписи относительно шкалы */
 }
 
 /*прогресс бар*/
