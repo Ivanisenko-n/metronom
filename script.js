@@ -275,19 +275,16 @@ function updateDots(count) {
     }
 // ---------
 
-/*  play button */
-// const play = document.querySelector('.play');
-// const pause = document.querySelector('.pause');
-// const playBtn = document.querySelector('.circle__btn');
-// const wave1 = document.querySelector('.circle__back-1');
-// const wave2 = document.querySelector('.circle__back-2');
+function toggleTheme() {
+    const root = $(':root');
+    const currentTheme = root.attr('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
+    root.attr('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
 
-// playBtn.addEventListener('click', function(e) {
-//   e.preventDefault();
-//   pause.classList.toggle('visibility');
-//   play.classList.toggle('visibility');
-//   playBtn.classList.toggle('shadow');
-//   wave1.classList.toggle('paused');
-//   wave2.classList.toggle('paused');
-// });
+$(document).ready(function () {
+    const themeSwitch = $('#switch-1');
+    themeSwitch.change(toggleTheme);
+});

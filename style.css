@@ -1,3 +1,44 @@
+:root {
+     --primary-light: #8abdff;
+     --primary: #6d5dfc;
+     --primary-dark: #5b0eeb;
+     --white: #fff;
+     --greyLight-1: #e4ebf5;
+     --greyLight-2: #c8d0e7;
+     --greyLight-3: #bec8e4;
+     --greyDark: #9baacf;
+}
+
+[data-theme='dark'] {
+     --primary-light: #83E3AD;
+     --primary: #6BB88C;
+     --primary-dark: #528E6C;
+     --white: #fff;
+     --greyLight-1: #F4EFEB;
+     --greyLight-2: #E1D5CB;
+     --greyLight-3: #CEBAAB;
+     --greyDark: #6C528E;
+}
+
+ *, *::before, *::after {
+     margin: 0;
+     padding: 0;
+     box-sizing: inherit;
+     text-align: center;
+}
+ html {
+     box-sizing: border-box;
+     font-size: 62.5%;
+     overflow-y: scroll;
+     background: var(--greyLight-1);
+     color: var(--primary-dark);
+}
+ @media screen and (min-width: 900px) {
+     html {
+         font-size: 75%;
+    }
+}
+
 @font-face {
   font-family: "Comfortaa";
   src: url("fonts/Comfortaa-VariableFont_wght.ttf");
@@ -31,6 +72,71 @@ input, select {
 input[type="number"] {
     width: 90px;
 }
+
+/*CONTEINER*/
+ .container {
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: 'Poppins', sans-serif;
+     background: var(--greyLight-1);
+}
+ .components {
+     width: 75rem;
+     height: 50rem;
+     border-radius: 3rem;
+     box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-2), -0.2rem -0.2rem 1.8rem var(--white);
+     padding: 2rem 4rem;
+     display: grid;
+/*   grid-template-columns: 17.6rem 19rem 20.4rem;*/
+     grid-template-columns: repeat(4, 1fr);
+     grid-template-rows: repeat(autofit, min-content);
+     grid-column-gap: 2rem;
+     grid-row-gap: 0rem;
+     align-items: center;
+     z-index: 99999;
+     background: var(--greyLight-1);
+}
+/* Медиазапрос для мобильных устройств */
+@media screen and (max-width: 767px) {
+    .components {
+        width: 100%; /* Занимает 100% ширины экрана */
+        height: 100vh; /* Занимает 100% высоты экрана */
+        padding: 2rem; /* Пример отступов, которые могут быть адаптированы под ваш дизайн */
+        grid-template-columns: 1fr; /* Одна колонка вместо четырех на мобильных устройствах */
+    }
+}
+
+.form__bpm {
+    display: grid;
+    grid-template-columns: 1fr; /* Одна колонка для формы */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.form__input,
+.range-slider__range {
+    margin-bottom: 0.5rem; /* Отступ между инпутами и слайдером */
+}
+
+.full-width {
+    grid-column: span 4;
+}
+
+.two-columns {
+    grid-column: span 2;
+}
+.three-columns {
+    grid-column: span 3;
+}
+
+.box {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+}
+/*-------*/
+
 #toggle-metronome {
      grid-column: 0.5;
      grid-row: 0.8;
@@ -116,6 +222,218 @@ input[type="number"] {
 }
 /*---------*/
 
+/* FORM */
+ .form {
+     grid-column: 0.75;
+     grid-row: 0.75;
+}
+ .form__input {
+     width: 20.4rem;
+     height: 4rem;
+     border: none;
+     border-radius: 1rem;
+     font-size: 1.4rem;
+     padding-left: 1.4rem;
+     box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+     background: none;
+     font-family: inherit;
+     color: var(--greyDark);
+}
+ .form__input::placeholder {
+     color: var(--greyLight-3);
+}
+ .form__input:focus {
+     outline: none;
+     box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+}
+.form__input.form__bpm{
+    margin: 0 auto;
+    font-size: 5.4rem;
+    height: 10rem;
+    width: 190px;
+}
+/*----------*/
+/*DOT*/
+.dot{
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     width: 2.8rem;
+     height: 2.8rem;
+     border-radius: 50%;
+     float: left;
+     margin: 0 0.5rem;
+     transition: all .2s linear;
+}
+.dot:hover{
+    transform: scale(1.148);
+    background: var(--primary);
+}
+.dot.active-dot{
+/*  transition: .2s linear;*/
+    transform: scale(1.148);
+    background: var(--primary);
+/*    box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light), inset -0.2rem -0.2rem 1rem var(--primary-dark), 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem*/
+}
+#dots-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
-
+/* SWITCH */
+ .switch {
+    position: absolute;
+    margin: 1rem;
+     grid-column: 0.5;
+     display: grid;
+     grid-template-columns: repeat(2, min-content);
+     grid-gap: 3rem;
+     justify-self: center;
+}
+ .switch input {
+     display: none;
+}
+ .switch__1, .switch__2 {
+     width: 6rem;
+}
+ .switch__1 label, .switch__2 label {
+     display: flex;
+     align-items: center;
+     width: 100%;
+     height: 3rem;
+     box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+     background: rgba(255, 255, 255, 0);
+     position: relative;
+     cursor: pointer;
+     border-radius: 1.6rem;
+}
+ .switch__1 label::after, .switch__2 label::after {
+     content: "";
+     position: absolute;
+     left: 0.4rem;
+     width: 2.1rem;
+     height: 2.1rem;
+     border-radius: 50%;
+     background: var(--greyDark);
+     transition: all 0.4s ease;
+}
+ .switch__1 label::before, .switch__2 label::before {
+     content: '';
+     width: 100%;
+     height: 100%;
+     border-radius: inherit;
+     background: linear-gradient(330deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+     opacity: 0;
+     transition: all 0.4s ease;
+}
+ .switch input:checked ~ label::before {
+     opacity: 1;
+}
+ .switch input:checked ~ label::after {
+     left: 57%;
+     background: var(--greyLight-1);
+}
+/* BUTTONS */
+ .btn {
+     width: 15rem;
+     height: 4rem;
+     border-radius: 1rem;
+     box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+     justify-self: center;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     transition: 0.3s ease;
+     border:none;
+}
+ .btn__primary {
+     grid-column: 0.5;
+     grid-row: 0.8;
+     background: var(--primary);
+     box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light), inset -0.2rem -0.2rem 1rem var(--primary-dark), 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+     color: var(--greyLight-1);
+}
+ .btn__primary:hover {
+     color: var(--white);
+}
+ .btn__primary:active {
+     box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-dark), inset -0.2rem -0.2rem 1rem var(--primary-light);
+}
+ .btn__secondary {
+     grid-column: 0.5;
+     grid-row: 0.8333333333;
+     color: var(--greyDark);
+}
+ .btn__secondary:hover {
+     color: var(--primary);
+}
+ .btn__secondary:active,  .btn__secondary.active{
+     box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+     color: var(--primary);
+}
+ .btn p {
+     font-size: 1.6rem;
+}
+/* SEGMENTED-CONTROL */
+ .segmented-control {
+     grid-column: 0.75;
+     grid-row: 0.5;
+     width: 20.4rem;
+     height: 4rem;
+     box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+     border-radius: 1rem;
+     display: flex;
+     align-items: center;
+     position: relative;
+}
+ .segmented-control input {
+     display: none;
+}
+ .segmented-control > input:checked + label {
+     transition: all 0.5s ease;
+     color: var(--primary);
+}
+ .segmented-control__1, .segmented-control__2, .segmented-control__3, .segmented-control__4 {
+     width: 4.8rem;
+     height: 3.6rem;
+     font-size: 1.4rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     color: var(--greyDark);
+     transition: all 0.5s ease;
+}
+ .segmented-control__1:hover, .segmented-control__2:hover, .segmented-control__3:hover, .segmented-control__4:hover {
+     color: var(--primary);
+}
+ .segmented-control__color {
+     position: absolute;
+     height: 3.4rem;
+     width: 4.2rem;
+     margin-left: 0.3rem;
+     border-radius: 0.8rem;
+     box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+     pointer-events: none;
+}
+ #tab-1:checked ~ .segmented-control__color {
+     transform: translateX(0);
+     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+ #tab-2:checked ~ .segmented-control__color {
+     transform: translateX(4.8rem);
+     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+ #tab-3:checked ~ .segmented-control__color {
+     transform: translateX(9.6rem);
+     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+ #tab-4:checked ~ .segmented-control__color {
+     transform: translateX(14.2rem);
+     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
